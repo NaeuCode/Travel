@@ -98,6 +98,11 @@ header {
     transform: translateY(-3px);
 }
 
+.socials {
+    display: flex;
+
+}
+
 #menu-icon {
     color: var(--text-color);
     font-size: 30px;
@@ -590,6 +595,7 @@ section {
         right: 0;
         display: flex;
         flex-direction: column;
+        align-items: center;
         background: var(--bg-color);
         transition: all .5s ease;
     }
@@ -662,6 +668,9 @@ section {
     .slide-button#next-slide{
         right: 10px;
     }
+    .h-right{
+        display: none;
+    }
 }
 
 @media screen and (max-width:450px) {
@@ -675,4 +684,5 @@ section {
     section{
         padding: 60px 5% 50px;
     }
+
 }

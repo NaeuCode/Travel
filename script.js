@@ -11,10 +11,38 @@ window.addEventListener("scroll", function () {
 let menu = document.querySelector("#menu-icon");
 let navbar = document.querySelector(".navbar");
 
-menu.onclick = () => {
+//Adding a click event listener to the menu icon
+menu.onclick = (e) => {
+    //Prevent the Default behavior of the link
+    e.preventDefault();
+
+    //Toggle the class "bx-x" on the menu icon
     menu.classList.toggle("bx-x");
+    //Toggle the class "open" on the navbar
     navbar.classList.toggle("open");
-}
+};
+
+//Selecting all navigation links
+let navLinks = document.querySelectorAll(".nav-link");
+
+//Adding an event listener to each navigation link
+navLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        //Get the target section's ID from the link's href attribute
+        let targetId = link.querySelector("a").getAttribute("href");
+        
+        //Scroll smoothly to teh target section
+        document.querySelector(targetId).scrollIntoView({ behavior: "smooth"});
+
+        // Close the Navbar if it's open 
+        if (navbar.classList.contains("open")) {
+            menu.classList.toggle("bx-x");
+            navbar.classList.toggle("open");
+        }
+    });
+});
 
 // Image Slider
 const initSlider = () => {
